@@ -1,0 +1,21 @@
+title /notes
+
+Selain->Palvelin: HTTP POST /new_note
+note over Palvelin:
+notes.push()
+end note
+Palvelin-->Selain: 302 Found /notes
+Selain->Palvelin: HTTP GET /notes
+Palvelin-->Selain: HTML-koodi
+Selain->Palvelin: HTTP GET main.css
+Palvelin-->Selain: main.css
+Selain->Palvelin: HTTP GET main.js
+Palvelin-->Selain: main.js
+note over Selain:
+main.js suoritetaan
+end note
+Selain->Palvelin: HTTP GET data.json
+Palvelin-->Selain: data.json
+note over Selain:
+renderöidään saatu data
+end note
