@@ -1,0 +1,16 @@
+title /spa
+
+Selain->Palvelin: HTTP GET /spa
+Palvelin-->Selain: HTML-koodi
+Selain->Palvelin: HTTP GET main.css
+Palvelin-->Selain: main.css
+Selain->Palvelin: HTTP GET spa.js
+Palvelin-->Selain: spa.js
+note over Selain:
+spa.js suoritetaan
+end note
+Selain->Palvelin: HTTP GET data.json
+Palvelin-->Selain: data.json
+note over Selain:
+renderöidään saatu data
+end note
