@@ -11,10 +11,7 @@ const App = (props) => {
   const [selected, setSelected] = useState(0)
   const [votes, setVotes] = useState(Array.apply(null, new Array(props.anecdotes.length)).map(Number.prototype.valueOf,0))
 
-  const randomAnecdote = () => {
-    let anecdote = Math.floor(Math.random() * props.anecdotes.length)
-    setSelected(anecdote)
-  }
+  const randomAnecdote = () => setSelected(Math.floor(Math.random() * props.anecdotes.length)) 
 
   const voteAnecdote = () => {
     const copy = [...votes]
