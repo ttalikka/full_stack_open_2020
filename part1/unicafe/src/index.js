@@ -21,17 +21,26 @@ const Statistics = props => {
   const all = props.good + props.neutral + props.bad
   const avg = (props.good * 1 + props.neutral * 0 + props.bad * -1) / all
   const pos = (props.good / all) * 100
-  return (
-    <div>
-      <h1>statistics</h1>
-      good {props.good}<br/>
-      neutral {props.neutral}<br/>
-      bad {props.bad}<br/>
-      all {all}<br/>
-      average {avg}<br/>
-      positive {pos} %
-    </div>
-  )
+  if (props.good > 0 || props.neutral > 0 || props.bad > 0){
+    return (
+      <div>
+        <h1>statistics</h1>
+        good {props.good}<br/>
+        neutral {props.neutral}<br/>
+        bad {props.bad}<br/>
+        all {all}<br/>
+        average {avg}<br/>
+        positive {pos} %
+      </div>
+    )
+  } else {
+    return (
+      <div>
+        <h1>statistics</h1>
+        No feedback given
+      </div>
+    )
+  }
 }
 
 const App = () => {
