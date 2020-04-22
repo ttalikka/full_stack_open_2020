@@ -16,7 +16,7 @@ const Header = () => {
   )
 }
 
-const Stats = props => {
+const Statistics = props => {
   console.log(props)
   const all = props.good + props.neutral + props.bad
   const avg = (props.good * 1 + props.neutral * 0 + props.bad * -1) / all
@@ -50,7 +50,7 @@ const App = () => {
       <Button handleClick={increaseGood} text="good" />
       <Button handleClick={increaseNeutral} text="neutral" />
       <Button handleClick={increaseBad} text="bad" />
-      <Stats good={good} neutral={neutral} bad={bad}/>
+      <Statistics good={good} neutral={neutral} bad={bad}/>
     </div>
   )
 }
