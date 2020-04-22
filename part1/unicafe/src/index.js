@@ -16,21 +16,28 @@ const Header = () => {
   )
 }
 
+const StatisticLine = (props) => {
+  return (
+    <div>
+      {props.text} {props.value}
+    </div>
+  )
+}
+
 const Statistics = props => {
-  console.log(props)
   const all = props.good + props.neutral + props.bad
   const avg = (props.good * 1 + props.neutral * 0 + props.bad * -1) / all
-  const pos = (props.good / all) * 100
+  const pos = (props.good / all) * 100 + "%"
   if (props.good > 0 || props.neutral > 0 || props.bad > 0){
     return (
       <div>
         <h1>statistics</h1>
-        good {props.good}<br/>
-        neutral {props.neutral}<br/>
-        bad {props.bad}<br/>
-        all {all}<br/>
-        average {avg}<br/>
-        positive {pos} %
+        <StatisticLine text="good" value={props.good} />
+        <StatisticLine text="neutral" value={props.neutral} />
+        <StatisticLine text="bad" value={props.bad} />
+        <StatisticLine text="all" value={all} />
+        <StatisticLine text="average" value={avg} />
+        <StatisticLine text="positive" value={pos} />
       </div>
     )
   } else {
