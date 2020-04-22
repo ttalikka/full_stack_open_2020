@@ -7,6 +7,17 @@ const Button = (props) => (
   </button>
 )
 
+const Voted = (props) => {
+  const biggest = props.votes.indexOf(Math.max(...props.votes))
+  return (
+    <div>
+      <h1>Anecdote with the most votes</h1>
+      {props.anecdotes[biggest]}<br/>
+      has {props.votes[biggest]} votes
+    </div>
+  )
+}
+
 const App = (props) => {
   const [selected, setSelected] = useState(0)
   const [votes, setVotes] = useState(Array.apply(null, new Array(props.anecdotes.length)).map(Number.prototype.valueOf,0))
@@ -21,11 +32,13 @@ const App = (props) => {
 
   return (
     <div>
+      <h1>Anecdote of the day</h1>
       {props.anecdotes[selected]}<br/>
       has {votes[selected]} votes
       <br/>
       <Button handleClick={voteAnecdote} text="+1" />
       <Button handleClick={randomAnecdote} text="next anectode" />
+      <Voted votes={votes} anecdotes={anecdotes} />
     </div>
   )
 }
